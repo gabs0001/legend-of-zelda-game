@@ -22,6 +22,8 @@ const VIEWPORT_CENTER_Y = VIEWPORT_HEIGHT / 2
 const MAX_SCROLL_X = MAP_WIDTH - VIEWPORT_WIDTH
 const MAX_SCROLL_Y = MAP_HEIGHT - VIEWPORT_HEIGHT
 
+let isGameOver = false
+
 const layersData = {
   l_Terrain: l_Terrain,
   l_Trees_1: l_Trees_1,
@@ -380,16 +382,20 @@ const animate = (backgroundCanvas) => {
         !player.isInvincible
       ){
         player.receiveHit()
+        
         const filledhearts = hearts.filter(heart => heart.currentFrame === 4)
         if(filledhearts.length > 0) {
           filledhearts[filledhearts.length - 1].currentFrame = 0
         }
+
         //fim de jogo
         if(filledhearts.length <= 1) {
           console.log('game over!')
+          isGameOver = true
         }
       }
     }
+
     c.drawImage(frontRendersCanvas, 0, 0)
 
     for(let i = leafs.length - 1; i >= 0; i--) {
@@ -406,6 +412,10 @@ const animate = (backgroundCanvas) => {
     c.scale(MAP_SCALE, MAP_SCALE)
     hearts.forEach(heart => heart.draw(c))
     c.restore()
+
+    if(isGameOver) {
+      return;
+    }
     
     requestAnimationFrame(() => animate(backgroundCanvas))
 }
