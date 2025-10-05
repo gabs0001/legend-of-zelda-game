@@ -10,7 +10,7 @@ Baseado em um treinamento em inglês do YouTube, o projeto foi amplamente refato
 
 ### Arquitetura e Estrutura
 
-  * **Programação Orientada a Objetos (POO):** Forte uso de classes para entidades (`Player`, `Enemy`), garantindo que a lógica de *gameplay* (movimento, combate, estado) seja encapsulada e de fácil manutenção.
+  * **Programação Orientada a Objetos (POO):** Forte uso de classes para entidades (`Player`, `Monster`, `Sprite`), garantindo que a lógica de *gameplay* (movimento, combate, estado) seja encapsulada e de fácil manutenção.
   * **Refatoração de Código:** O código original do treinamento foi otimizado para **melhor legibilidade** e **divisão de responsabilidades**, tornando a estrutura mais profissional e escalável.
   * **Design de Nível Aprimorado:** O cenário foi modificado e expandido, inserindo **novos obstáculos** para aumentar o desafio e a profundidade da exploração (sua contribuição direta no *level design*).
 
